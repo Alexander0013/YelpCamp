@@ -33,6 +33,7 @@ module.exports.isReviewAuthor = async (req, res, next) => {
 
 module.exports.validateCampground = (req, res, next) => {
   const { error } = campgroundSchema.validate(req.body);
+  console.log(req.body);
   if (error) {
     const msg = error.details.map((el) => el.message).join(",");
     throw new ExpressError(msg, 400);
